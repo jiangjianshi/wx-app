@@ -2,7 +2,6 @@
 //获取应用实例
 var app = getApp()
 var requestUrl = require('../../config.js');
-
 Page({
   data: {
     totalScoreToPay: 0,
@@ -55,15 +54,15 @@ Page({
     });
   },
 
-  getDistrictId : function (obj, aaa){
-    if (!obj) {
-      return "";
-    }
-    if (!aaa) {
-      return "";
-    }
-    return aaa;
-  },
+  // getDistrictId : function (obj, aaa){
+  //   if (!obj) {
+  //     return "";
+  //   }
+  //   if (!aaa) {
+  //     return "";
+  //   }
+  //   return aaa;
+  // },
 
   createOrder:function (e) {
     wx.showLoading();
@@ -93,15 +92,16 @@ Page({
         })
         return;
       }
-      postData.provinceId = that.data.curAddressData.provinceId;
-      postData.cityId = that.data.curAddressData.cityId;
-      if (that.data.curAddressData.districtId) {
-        postData.districtId = that.data.curAddressData.districtId;
-      }
-      postData.address = that.data.curAddressData.address;
-      postData.linkMan = that.data.curAddressData.linkMan;
-      postData.mobile = that.data.curAddressData.mobile;
-      postData.code = that.data.curAddressData.code;
+      // postData.provinceId = that.data.curAddressData.provinceId;
+      // postData.cityId = that.data.curAddressData.cityId;
+      // if (that.data.curAddressData.districtId) {
+      //   postData.districtId = that.data.curAddressData.districtId;
+      // }
+      // postData.address = that.data.curAddressData.address;
+      // postData.linkMan = that.data.curAddressData.linkMan;
+      // postData.mobile = that.data.curAddressData.mobile;
+      // postData.code = that.data.curAddressData.code;
+      postData.addressId = that.data.curAddressData.id;
     }
     if (that.data.curCoupon) {
       postData.couponId = that.data.curCoupon.id;
@@ -146,9 +146,9 @@ Page({
         }
         // 配置模板消息推送
         var postJsonString = {};
-        postJsonString.keyword1 = { value: res.data.data.dateAdd, color: '#173177' }
-        postJsonString.keyword2 = { value: res.data.data.amountReal + '元', color: '#173177' }
-        postJsonString.keyword3 = { value: res.data.data.orderNumber, color: '#173177' }
+        postJsonString.keyword1 = { value: res.data.data.createTime, color: '#173177' }
+        postJsonString.keyword2 = { value: res.data.data.realAmount + '元', color: '#173177' }
+        postJsonString.keyword3 = { value: res.data.data.orderCode, color: '#173177' }
         postJsonString.keyword4 = { value: '订单已关闭', color: '#173177' }
         postJsonString.keyword5 = { value: '您可以重新下单，请在30分钟内完成支付', color:'#173177'}
         app.sendTempleMsg(res.data.data.id, -1,
@@ -156,8 +156,8 @@ Page({
           'pages/index/index', JSON.stringify(postJsonString));
         postJsonString = {};
         postJsonString.keyword1 = { value: '您的订单已发货，请注意查收', color: '#173177' }
-        postJsonString.keyword2 = { value: res.data.data.orderNumber, color: '#173177' }
-        postJsonString.keyword3 = { value: res.data.data.dateAdd, color: '#173177' }
+        postJsonString.keyword2 = { value: res.data.data.orderCode, color: '#173177' }
+        postJsonString.keyword3 = { value: res.data.data.createTime, color: '#173177' }
         app.sendTempleMsg(res.data.data.id, 2,
           'Arm2aS1rsklRuJSrfz-QVoyUzLVmU2vEMn_HgMxuegw', e.detail.formId,
           'pages/order-details/index?id=' + res.data.data.id, JSON.stringify(postJsonString));

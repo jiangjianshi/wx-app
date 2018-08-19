@@ -1,5 +1,6 @@
 var wxpay = require('../../utils/pay.js')
 var requestUrl = require('../../config.js')
+
 var app = getApp()
 Page({
   data:{
@@ -164,7 +165,7 @@ Page({
         wx.hideLoading();
         if (res.data.code == 0) {
           that.setData({
-            orderList: res.data.data,
+            orderList: res.data.data.orders,
             // logisticsMap : res.data.data.logisticsMap,
             goodsMap : res.data.data.goodsMap
           });

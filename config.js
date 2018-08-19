@@ -4,7 +4,7 @@
  */
 
 // var host = "http://try8023.com"  //线上
-var host = "http://192.168.2.237:8080"  //开发
+var host = "http://localhost:8080"  //开发
 
 //这里用来配置所有请求地址
 var config = {
