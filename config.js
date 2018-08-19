@@ -26,5 +26,7 @@ var config = {
   getGoodsDetail: `${host}/goods/getGoodsDetail`,//getGoodsDetail
   calSelectedPrice: `${host}/goods/calSelectedPrice`,//calSelectedPrice
   createOrder: `${host}/orders/createOrder`,//createOrder
+  orderDetail: `${host}/orders/orderDetail`,//orderDetail
+  confirmOrder: `${host}/orders/confirmOrder`,//confirmOrder
 }
 module.exports = config

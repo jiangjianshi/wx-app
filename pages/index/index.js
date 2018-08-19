@@ -18,7 +18,7 @@ Page({
     scrollTop:0,
     loadingMoreHidden:true,
 
-    hasNoCoupons:true,
+    hasNoCoupons:false,
     coupons: [],
     searchInput: '',
   },
@@ -93,7 +93,7 @@ Page({
         that.getGoodsList(0);
       }
     })
-    that.getCoupons ();
+    // that.getCoupons ();
     that.getNotice ();
   },
   onPageScroll(e) {

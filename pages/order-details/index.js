@@ -1,4 +1,5 @@
 var app = getApp();
+var requestUrl = require('../../config.js');
 Page({
     data:{
       orderId:0,
@@ -15,10 +16,10 @@ Page({
     onShow : function () {
       var that = this;
       wx.request({
-        url: 'https://api.it120.cc/' + app.globalData.subDomain + '/order/detail',
+        url: requestUrl.orderDetail,
         data: {
           token: wx.getStorageSync('token'),
-          id: that.data.orderId
+          orderId: that.data.orderId
         },
         success: (res) => {
           wx.hideLoading();
@@ -63,7 +64,7 @@ Page({
             if (res.confirm) {
               wx.showLoading();
               wx.request({
-                url: 'https://api.it120.cc/' + app.globalData.subDomain + '/order/delivery',
+                url: requestUrl.confirmOrder,
                 data: {
                   token: wx.getStorageSync('token'),
                   orderId: orderId

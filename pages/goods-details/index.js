@@ -3,7 +3,6 @@
 var app = getApp();
 var WxParse = require('../../wxParse/wxParse.js');
 var requestUrl = require('../../config.js');
-
 Page({
   data: {
     autoplay: true,
