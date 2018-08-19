@@ -24,7 +24,7 @@ var config = {
   listBanner: `${host}/goods/listBanner`,//listBanner
   listGoods: `${host}/goods/listGoods`,//listGoods
   getGoodsDetail: `${host}/goods/getGoodsDetail`,//getGoodsDetail
-  
-
+  calSelectedPrice: `${host}/goods/calSelectedPrice`,//calSelectedPrice
+  createOrder: `${host}/orders/createOrder`,//createOrder
 }
 module.exports = config

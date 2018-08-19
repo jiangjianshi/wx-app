@@ -1,6 +1,7 @@
 //index.js
 var app = getApp()
 var requestUrl = require('../../config.js');
+
 Page({
   data: {
     goodsList:{
@@ -208,12 +209,12 @@ Page({
       var carShopBean = list[parseInt(index)];
       var carShopBeanStores = 0;
       wx.request({
-        url: 'https://api.it120.cc/' + app.globalData.subDomain + '/shop/goods/detail',
+        url: requestUrl.getGoodsDetail,
         data: {
-          id: carShopBean.goodsId
+          goodsId: carShopBean.goodsId
         },
         success: function (res) {
-          carShopBeanStores = res.data.data.basicInfo.stores;
+          carShopBeanStores = res.data.data.basicInfo.storeAmount;
           console.log(' currnet good id and stores is :',carShopBean.goodsId, carShopBeanStores)
           if (list[parseInt(index)].number < carShopBeanStores) {
             list[parseInt(index)].number++;
@@ -304,9 +305,9 @@ Page({
         // 获取价格和库存
         if (!carShopBean.propertyChildIds || carShopBean.propertyChildIds == "") {
           wx.request({
-            url: 'https://api.it120.cc/'+ app.globalData.subDomain +'/shop/goods/detail',
+            url: requestUrl.getGoodsDetail,
             data: {
-              id: carShopBean.goodsId
+              goodsId: carShopBean.goodsId
             },
             success: function(res) {
               doneNumber++;
@@ -320,7 +321,7 @@ Page({
                 wx.hideLoading();
                 return;
               }
-              if (res.data.data.basicInfo.stores < carShopBean.number) {
+              if (res.data.data.basicInfo.storeAmount < carShopBean.number) {
                 wx.showModal({
                   title: '提示',
                   content: res.data.data.basicInfo.name + ' 库存不足，请重新购买',
@@ -347,14 +348,14 @@ Page({
           })
         } else {
           wx.request({
-            url: 'https://api.it120.cc/'+ app.globalData.subDomain +'/shop/goods/price',
+            url: requestUrl.calSelectedPrice,
             data: {
               goodsId: carShopBean.goodsId,
               propertyChildIds:carShopBean.propertyChildIds
             },
             success: function(res) {
               doneNumber++;
-              if (res.data.data.stores < carShopBean.number) {
+              if (res.data.data.storeAmount < carShopBean.number) {
                 wx.showModal({
                   title: '提示',
                   content: carShopBean.name + ' 库存不足，请重新购买',

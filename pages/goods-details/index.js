@@ -63,7 +63,7 @@ Page({
         var selectSizeTemp = "";
         if (res.data.data.properties) {
           for(var i=0;i<res.data.data.properties.length;i++){
-            selectSizeTemp = selectSizeTemp + " " + res.data.data.properties[i].typeName;
+            selectSizeTemp = selectSizeTemp + " " + res.data.data.properties[i].name;
           }
           that.setData({
             hasMoreSelect:true,
@@ -185,7 +185,7 @@ Page({
         if(childs[j].active){
           curSelectNum++;
           propertyChildIds = propertyChildIds + that.data.goodsDetail.properties[i].id + ":"+ childs[j].id +",";
-          propertyChildNames = propertyChildNames + that.data.goodsDetail.properties[i].name + ":"+ childs[j].name +"  ";
+          propertyChildNames = propertyChildNames + that.data.goodsDetail.properties[i].name + ":" + childs[j].propValue +"  ";
         }
       }
     }
@@ -196,7 +196,7 @@ Page({
     // 计算当前价格
     if (canSubmit) {
       wx.request({
-        url: 'https://api.it120.cc/'+ app.globalData.subDomain +'/shop/goods/price',
+        url: requestUrl.calSelectedPrice,
         data: {
           goodsId: that.data.goodsDetail.basicInfo.id,
           propertyChildIds:propertyChildIds

@@ -2,6 +2,7 @@
 //获取应用实例
 var app = getApp()
 var requestUrl = require('../../config.js');
+
 Page({
   data: {
     totalScoreToPay: 0,
@@ -74,6 +75,7 @@ Page({
     }
 
     var postData = {
+      uid: wx.getStorageSync('uid'),
       token: loginToken,
       goodsJsonStr: that.data.goodsJsonStr,
       remark: remark
@@ -110,7 +112,7 @@ Page({
 
 
     wx.request({
-      url: 'https://api.it120.cc/'+ app.globalData.subDomain +'/order/create',
+      url: requestUrl.createOrder,
       method:'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
