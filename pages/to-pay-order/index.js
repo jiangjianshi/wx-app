@@ -214,9 +214,11 @@ Page({
       if (inviter_id_storge) {
         inviter_id = inviter_id_storge;
       }
-
-
-      goodsJsonStrTmp += '{"goodsId":' + carShopBean.goodsId + ',"number":' + carShopBean.number + ',"label":' + carShopBean.label + ', "propertyChildIds":"' + carShopBean.propertyChildIds + '","logisticsType":0, "inviter_id":' + inviter_id +'}';
+      var labelStr = '';
+      if (carShopBean.label) {
+        labelStr = carShopBean.label.replace(/,/g, "");
+      }
+      goodsJsonStrTmp += '{"goodsId":' + carShopBean.goodsId + ',"number":' + carShopBean.number + ',"label":"' + labelStr + '", "propertyChildIds":"' + carShopBean.propertyChildIds + '","logisticsType":0, "inviter_id":' + inviter_id +'}';
       goodsJsonStr += goodsJsonStrTmp;
 
 
