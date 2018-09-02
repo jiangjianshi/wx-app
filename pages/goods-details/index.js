@@ -35,6 +35,7 @@ Page({
     })  
   },
   onLoad: function (e) {
+    console.log(e.inviter_id);
     if (e.inviter_id) {
       wx.setStorage({
         key: 'inviter_id_' + e.id,

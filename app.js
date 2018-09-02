@@ -74,19 +74,19 @@ App({
   sendTempleMsg: function (orderId, trigger, template_id, form_id, page, postJsonString){
     var that = this;
     wx.request({
-      url: 'https://api.it120.cc/' + that.globalData.subDomain + '/template-msg/put',
+      url: requestUrl.putTemplateMsg,
       method:'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       data: {
-        token: wx.getStorageSync('token'),
+        uid: wx.getStorageSync('uid'),
         type:0,
         module:'order',
-        business_id: orderId,
-        trigger: trigger,
-        template_id: template_id,
-        form_id: form_id,
+        businessId: orderId,
+        triggerType: trigger,
+        templateId: template_id,
+        formId: form_id,
         url:page,
         postJsonString: postJsonString
       },

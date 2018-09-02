@@ -35,11 +35,6 @@
       "iconPath": "images/nav/home-off.png",
       "selectedIconPath": "images/nav/home-on.png",
       "text": "首页"
-    }, {
-      "pagePath": "pages/shop-cart/index",
-      "iconPath": "images/nav/cart-off.png",
-      "selectedIconPath": "images/nav/cart-on.png",
-      "text": "分类"
     },
     {
       "pagePath": "pages/shop-cart/index",

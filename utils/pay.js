@@ -1,3 +1,5 @@
+var requestUrl = require('../config.js')
+
 function wxpay(app, money, orderId, redirectUrl) {
   let remark = "在线充值";
   let nextAction = {};
@@ -6,7 +8,7 @@ function wxpay(app, money, orderId, redirectUrl) {
     nextAction = { type: 0, id: orderId };
   }
   wx.request({
-    url: 'https://api.it120.cc/' + app.globalData.subDomain + '/pay/wxapp/get-pay-data',
+    url: requestUrl.getPayData,
     data: {
       token: wx.getStorageSync('token'),
       money:money,

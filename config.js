@@ -3,8 +3,8 @@
  * const requestUrl = require('../../../../config').getSession
  */
 
-var host = "http://try8023.com"  //线上
-// var host = "http://localhost:8080"  //开发
+// var host = "http://try8023.com"  //线上
+var host = "http://192.168.2.237:8080"  //开发
 
 //这里用来配置所有请求地址
 var config = {
@@ -28,5 +28,9 @@ var config = {
   createOrder: `${host}/orders/createOrder`,//createOrder
   orderDetail: `${host}/orders/orderDetail`,//orderDetail
   confirmOrder: `${host}/orders/confirmOrder`,//confirmOrder
+  getUserScore: `${host}/user/getUserScore`,//getUserScore
+  getPayData: `${host}/orders/getPayData`,//getPayData
+  putTemplateMsg: `${host}/orders/putTemplateMsg`,//putTemplateMsg
+  getWxUserInfo: `${host}/user/getWxUserInfo`,//getWxUserInfo
 }
 module.exports = config

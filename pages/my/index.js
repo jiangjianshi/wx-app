@@ -1,5 +1,5 @@
 const app = getApp()
-
+var requestUrl = require('../../config.js');
 Page({
 	data: {
     balance:0,
@@ -25,9 +25,10 @@ Page({
     }
     this.getUserApiInfo();
     this.getUserAmount();
-    this.checkScoreSign();
+    // this.checkScoreSign();
   },
   getPhoneNumber: function(e) {
+    console.info(e.detail);
     if (!e.detail.errMsg || e.detail.errMsg != "getPhoneNumber:ok") {
       wx.showModal({
         title: '提示',
@@ -65,15 +66,15 @@ Page({
   getUserApiInfo: function () {
     var that = this;
     wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/detail',
+      url: requestUrl.getWxUserInfo,
       data: {
-        token: wx.getStorageSync('token')
+        uid: wx.getStorageSync('uid')
       },
       success: function (res) {
         if (res.data.code == 0) {
           that.setData({
-            apiUserInfoMap: res.data.data,
-            userMobile: res.data.data.base.mobile
+            // apiUserInfoMap: res.data.data,
+            userMobile: res.data.data.mobile
           });
         }
       }
@@ -83,16 +84,16 @@ Page({
   getUserAmount: function () {
     var that = this;
     wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/amount',
+      url: requestUrl.getUserScore,
       data: {
-        token: wx.getStorageSync('token')
+        uid: wx.getStorageSync('uid')
       },
       success: function (res) {
         if (res.data.code == 0) {
           that.setData({
-            balance: res.data.data.balance,
-            freeze: res.data.data.freeze,
-            score: res.data.data.score
+            // balance: res.data.data.balance,
+            // freeze: res.data.data.freeze,
+            score: res.data.data
           });
         }
       }
@@ -141,14 +142,14 @@ Page({
       url: "/pages/authorize/index"
     })
   },
-  recharge: function () {
-    wx.navigateTo({
-      url: "/pages/recharge/index"
-    })
-  },
-  withdraw: function () {
-    wx.navigateTo({
-      url: "/pages/withdraw/index"
-    })
-  }
+  // recharge: function () {
+  //   wx.navigateTo({
+  //     url: "/pages/recharge/index"
+  //   })
+  // },
+  // withdraw: function () {
+  //   wx.navigateTo({
+  //     url: "/pages/withdraw/index"
+  //   })
+  // }
 })

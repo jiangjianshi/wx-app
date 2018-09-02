@@ -152,14 +152,14 @@ Page({
         postJsonString.keyword4 = { value: '订单已关闭', color: '#173177' }
         postJsonString.keyword5 = { value: '您可以重新下单，请在30分钟内完成支付', color:'#173177'}
         app.sendTempleMsg(res.data.data.id, -1,
-          'mGVFc31MYNMoR9Z-A9yeVVYLIVGphUVcK2-S2UdZHmg', e.detail.formId,
+          'YO_xzGsp1hdQruN8OKUx3zk5grszxOtvWdk3r_VMzkk', e.detail.formId,
           'pages/index/index', JSON.stringify(postJsonString));
         postJsonString = {};
         postJsonString.keyword1 = { value: '您的订单已发货，请注意查收', color: '#173177' }
         postJsonString.keyword2 = { value: res.data.data.orderCode, color: '#173177' }
         postJsonString.keyword3 = { value: res.data.data.createTime, color: '#173177' }
         app.sendTempleMsg(res.data.data.id, 2,
-          'Arm2aS1rsklRuJSrfz-QVoyUzLVmU2vEMn_HgMxuegw', e.detail.formId,
+          'zRnz1YeIPjK4O6fv74yF7RFehA4W8TXdRAAtjHxTu8c', e.detail.formId,
           'pages/order-details/index?id=' + res.data.data.id, JSON.stringify(postJsonString));
         // 下单成功，跳转到订单管理界面
         wx.redirectTo({

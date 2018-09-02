@@ -53,42 +53,45 @@ Page({
     var orderId = e.currentTarget.dataset.id;
     var money = e.currentTarget.dataset.money;
     var needScore = e.currentTarget.dataset.score;
+    console.log("orderId:" + orderId + ",money:" + money + ",needScore:" + needScore);
     wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/amount',
+      url: requestUrl.getUserScore,
       data: {
-        token: wx.getStorageSync('token')
+        uid: wx.getStorageSync('uid')
       },
       success: function (res) {
         if (res.data.code == 0) {
           // res.data.data.balance
-          money = money - res.data.data.balance;
-          if (res.data.data.score < needScore) {
-            wx.showModal({
-              title: '错误',
-              content: '您的积分不足，无法支付',
-              showCancel: false
-            })
-            return;
-          }
-          if (money <= 0) {
-            // 直接使用余额支付
-            wx.request({
-              url: 'https://api.it120.cc/' + app.globalData.subDomain + '/order/pay',
-              method:'POST',
-              header: {
-                'content-type': 'application/x-www-form-urlencoded'
-              },
-              data: {
-                token: wx.getStorageSync('token'),
-                orderId: orderId
-              },
-              success: function (res2) {
-                that.onShow();
-              }
-            })
-          } else {
-            wxpay.wxpay(app, money, orderId, "/pages/order-list/index");
-          }
+          // money = money - res.data.data;
+          // if (res.data.data < needScore) {
+          //   wx.showModal({
+          //     title: '错误',
+          //     content: '您的积分不足，无法支付',
+          //     showCancel: false
+          //   })
+          //   return;
+          // }
+          // if (money <= 0) {
+          //   // 直接使用余额支付
+          //   wx.request({
+          //     url: 'https://api.it120.cc/' + app.globalData.subDomain + '/order/pay',
+          //     method:'POST',
+          //     header: {
+          //       'content-type': 'application/x-www-form-urlencoded'
+          //     },
+          //     data: {
+          //       token: wx.getStorageSync('token'),
+          //       orderId: orderId
+          //     },
+          //     success: function (res2) {
+          //       that.onShow();
+          //     }
+          //   })
+          // } else {
+          //   wxpay.wxpay(app, money, orderId, "/pages/order-list/index");
+          // }
+          //次处直接使用微信支付
+          wxpay.wxpay(app, money, orderId, "/pages/order-list/index");
         } else {
           wx.showModal({
             title: '错误',
