@@ -24,6 +24,9 @@
   <view class="my-item">
     <navigator url="/pages/select-address/index" hover-class="navigator-hover">我的收货地址</navigator>
   </view>
+  <view class="my-item">
+    <navigator url="/pages/invite/index" hover-class="navigator-hover">邀请好友</navigator>
+  </view>
   <!-- <view class="my-item">
     <navigator url="/pages/mycoupons/index" hover-class="navigator-hover">我的优惠券</navigator>
   </view> -->

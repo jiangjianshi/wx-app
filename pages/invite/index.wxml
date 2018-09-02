@@ -1,0 +1,7 @@
+<view class="container">
+    <form bindsubmit="bindSave">
+    <view style='width:100%;padding-left:30rpx;font-size: 28rpx;margin-top:30rpx;'>1、将小程序分享给好友，好友注册后可获积分奖励；</view>
+    <view style='width:100%;padding-left:30rpx;font-size: 28rpx;margin-top:30rpx;'>2、分享商品给好友，好友下单后可获得积分奖励；</view>
+    <button open-type="share" bindgetuserinfo="bindGetUserInfo" class="save-btn">分享邀请好友</button>
+    </form>
+</view>

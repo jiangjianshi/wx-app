@@ -116,7 +116,8 @@ Page({
           },
           data: {
             code:code,
-            userinfo: JSON.stringify(userinfo) 
+            userinfo: JSON.stringify(userinfo),
+            inviterUid: wx.getStorageSync('inviter_uid')
           },
           success: function (res) {
             if (res.data.code != 0) {

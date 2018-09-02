@@ -53,7 +53,14 @@ Page({
         selectCurrent: e.index  
     })  
   },
-  onLoad: function () {
+  onLoad: function (e) {
+    console.log(e.inviter_id);
+    if (e.inviter_id) {
+      wx.setStorage({
+        key: 'inviter_uid',
+        data: e.inviter_id
+      })
+    }
     var that = this
     wx.setNavigationBarTitle({
       title: wx.getStorageSync('mallName')
