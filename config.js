@@ -32,5 +32,6 @@ var config = {
   getPayData: `${host}/orders/getPayData`,//getPayData
   putTemplateMsg: `${host}/orders/putTemplateMsg`,//putTemplateMsg
   getWxUserInfo: `${host}/user/getWxUserInfo`,//getWxUserInfo
+  bindMobile: `${host}/user/bindMobile`,//bindMobile
 }
 module.exports = config

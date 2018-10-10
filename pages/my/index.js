@@ -39,9 +39,10 @@ Page({
     }
     var that = this;
     wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/wxapp/bindMobile',
+      url: requestUrl.bindMobile,
       data: {
         token: wx.getStorageSync('token'),
+        uid: wx.getStorageSync('uid'),
         encryptedData: e.detail.encryptedData,
         iv: e.detail.iv
       },
