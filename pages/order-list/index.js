@@ -50,7 +50,7 @@ Page({
   },
   toPayTap:function(e){
     var that = this;
-    var orderId = e.currentTarget.dataset.id;
+    var orderId = e.currentTarget.dataset.code;
     var money = e.currentTarget.dataset.money;
     var needScore = e.currentTarget.dataset.score;
     console.log("orderId:" + orderId + ",money:" + money + ",needScore:" + needScore);

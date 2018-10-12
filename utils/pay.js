@@ -4,7 +4,7 @@ function wxpay(app, money, orderId, redirectUrl) {
   let remark = "在线充值";
   let nextAction = {};
   if (orderId != 0) {
-    remark = "支付订单 ：" + orderId;
+    remark = "支付订单：" + orderId;
     nextAction = { type: 0, id: orderId };
   }
   wx.request({
@@ -23,11 +23,12 @@ function wxpay(app, money, orderId, redirectUrl) {
         wx.requestPayment({
           timeStamp:res.data.data.timeStamp,
           nonceStr:res.data.data.nonceStr,
-          package:'prepay_id=' + res.data.data.prepayId,
+          package:res.data.data.prepayId,
           signType:'MD5',
           paySign:res.data.data.sign,
           fail:function (aaa) {
-            wx.showToast({title: '支付失败:' + aaa})
+            console.info(aaa);
+            wx.showToast({title: '支付失败'})
           },
           success:function () {
             wx.showToast({title: '支付成功'})
