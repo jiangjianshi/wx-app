@@ -17,7 +17,7 @@ App({
     //     }
     //   }
     // })
-    wx.setStorageSync('mallName', '家具商场');
+    wx.setStorageSync('mallName', '弗尼7进出口家具超市');
     wx.request({
       url: 'https://api.it120.cc/' + that.globalData.subDomain + '/score/send/rule',
       data: {

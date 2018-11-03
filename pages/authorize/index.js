@@ -87,7 +87,7 @@ Page({
         },
         success: function (res) {
           if (res.data.code != 0) {
-            wx.removeStorageSync('token')
+            wx.removeStorageSync('uid')
             that.login();
           } else {
             // 回到起始页面

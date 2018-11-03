@@ -26,14 +26,17 @@ function wxpay(app, money, orderId, redirectUrl) {
           package:res.data.data.prepayId,
           signType:'MD5',
           paySign:res.data.data.sign,
-          fail:function (aaa) {
-            console.info(aaa);
+          fail:function (res) {
+            console.info(res);
             wx.showToast({title: '支付失败'})
           },
           success:function () {
-            wx.showToast({title: '支付成功'})
-            wx.redirectTo({
-              url: redirectUrl
+            wx.showToast({title: '支付成功'}),
+            wx.request({
+              url: requestUrl.successOrder,
+              data: {
+                orderCode: orderId
+              }
             });
           }
         })

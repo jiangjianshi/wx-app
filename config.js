@@ -19,6 +19,7 @@ var config = {
   getDefaultAddress: `${host}/address/getDefaultAddress`,//getDefaultAddress
   listOrders: `${host}/orders/listOrders`,//listOrders
   closeOrder: `${host}/orders/closeOrder`,//closeOrder
+  successOrder: `${host}/orders/successOrder`,//successOrder
   statistics: `${host}/orders/statistics`,//statistics
   listCategory: `${host}/goods/listCategory`,//listCategory
   listBanner: `${host}/goods/listBanner`,//listBanner
