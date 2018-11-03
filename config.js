@@ -2,7 +2,7 @@
  * 小程序配置文件,主要是网络请求地址配置,如有网络请求，请将url在这里配置,使用的时候在.js中引入
  * const requestUrl = require('../../../../config').getSession
  */
-var host = "https://funi7.com"  //正式
+var host = "https://funi7.com/app"  //正式
 // var host = "http://try8023.com"  //内测
 // var host = "http://192.168.2.115:8081"  //开发
 
