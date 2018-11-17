@@ -446,6 +446,20 @@ Page({
       }
     })
   },
+  //图片预览放大
+  preView: function (event) {
+    var src = event.currentTarget.dataset.src;//获取data-src
+    var imgList = event.currentTarget.dataset.list;//获取data-list
+    var myImgs = new Array()
+    for (var i = 0; i < imgList.length;i++){
+      myImgs[i] = imgList[i].picUrl;
+    }
+    //图片预览
+    wx.previewImage({
+      current: src, // 当前显示图片的http链接
+      urls: myImgs // 需要预览的图片http链接列表
+    })
+  },
   getKanjiaInfo: function (gid) {
     var that = this;
     if (!app.globalData.kanjiaList || app.globalData.kanjiaList.length == 0){

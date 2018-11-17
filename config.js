@@ -4,7 +4,7 @@
  */
 var host = "https://funi7.com/app"  //正式
 // var host = "http://try8023.com"  //内测
-// var host = "http://192.168.2.115:8081"  //开发
+// var host = "localhost:8080"  //开发
 
 //这里用来配置所有请求地址
 var config = {
