@@ -130,7 +130,7 @@ App({
     userInfo:null,
     subDomain: "tz", // 如果你的域名是： https://api.it120.cc/abcd 那么这里只要填写 abcd
     version: "3.0.1",
-    shareProfile: '百款精品商品，总有一款适合您', // 首页转发的时候话术
+    shareProfile: '百款精品商品，选择只属于你的生活方式', // 首页转发的时候话术
     appid: 'wx20452b87603c728d',//appid需自己提供，此处的appid我随机编写
     secret: 'e5e1887306ee8ea0aad9fd6f174d434a',//secret
     uid: 0,

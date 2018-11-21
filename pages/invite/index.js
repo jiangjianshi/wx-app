@@ -62,9 +62,9 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '您好，里面有好多温馨的家居，快来挑选吧！',
+      title: '里面有好多温馨的家居，快来挑选吧！',
       path: '/pages/index/index?inviter_id=' + wx.getStorageSync('uid'),
-      imageUrl:'https://img10.360buyimg.com/imgzone/jfs/t5980/259/7297909027/261277/3b319cfd/597ae69bN8722b1a3.jpg',
+      imageUrl:'https://funi-market.oss-cn-beijing.aliyuncs.com/share/funi7_invite_background.jpeg',
       success: function (res) {
         // 转发成功
       },
