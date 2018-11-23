@@ -1,7 +1,7 @@
 /**index.wxss**/
 
 .container {
-  background-color: #F2f2f2;
+  background-color: #fff;
   min-height: 100%;
 }
 .swiper-container{
@@ -77,19 +77,19 @@ swiper-item image {
 }
 .goods-box{
   width: 339rpx;
-  height: 472rpx;
+  height: 400rpx;
   background-color: #fff;
   overflow: hidden;
-  margin-bottom: 24rpx;
+  margin-bottom: 12rpx;
 }
 .goods-box .img-box{
-  width: 339rpx;
-  height: 339rpx;
+  width: 300rpx;
+  height: 300rpx;
   overflow: hidden;
 }
 .goods-box .img-box image{
-   width: 339rpx;
-   height: 339rpx;
+   width: 300rpx;
+   height: 300rpx;
 }
 .goods-box .goods-title{
   width: 280rpx;
@@ -97,7 +97,7 @@ swiper-item image {
   white-space: nowrap;
   overflow: hidden;
   font-size: 24rpx;
-  padding: 24rpx 0 0rpx 0;
+  padding: 12rpx 0 0rpx 0;
   color:#000;
   margin-left: 24rpx;
 }
@@ -105,7 +105,7 @@ swiper-item image {
   width: 280rpx;
   overflow: hidden;
   font-size: 24rpx;
-  padding: 24rpx 0;
+  padding: 12rpx 0;
   color:#e64340;
   margin-left: 24rpx;
 }
